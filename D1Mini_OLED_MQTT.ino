@@ -18,9 +18,9 @@ PubSubClient client(espClient);
 PersWiFiManager persWM(server, dnsServer);
 Wemos_Mini_OLED display(0);
 
-//const char* mqtt_server = "XXX.cloudmqtt.com";  // Your MQTT server
-//const char* user = "XXXXXXXXXXX";               // Your MQTT yourname
-//const char* pass = "XXXXXXXXXXXXXX";            // Your MQTT password
+const char* mqtt_server = "XXX.cloudmqtt.com";  // Your MQTT server
+const char* user = "XXXXXXXXXXX";               // Your MQTT yourname
+const char* pass = "XXXXXXXXXXXXXX";            // Your MQTT password
 
 bool internet = false;
 String s;
