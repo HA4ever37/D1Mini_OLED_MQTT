@@ -28,5 +28,5 @@ Needed hardware:
 * I2C 0.66 OLED screen (Wemos d1 mini Oled)
 
 
-IMPORTANT! don't forget to upload the content of "data" folder to your ESP8266 using "ESP8266 Sketch Data Upload" tool before you upload the sketch
+IMPORTANT! don't forget to upload the content of "data" folder to your ESP8266 using "ESP8266 Sketch Data Upload" tool before you upload the sketch. 
 MQTT commands can be found in "Commands.txt" 
