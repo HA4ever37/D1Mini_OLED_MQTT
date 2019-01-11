@@ -7,7 +7,7 @@ Features:
 * Ability to print messages on screen or accept commands from an MQTT subscribed topic 
 * Active http server to show debugging messages instead of using Serial monitor
 * SPIFFS read/write abitily so you can upload files to your ESP8266 easily
-* Compressed Gz HTML files to save space
+* Compressed gzip HTML files to save space
 * DNS Server for easy initial setup
 * SSDP Server so your ESP8266 can be seen as wifi device when connected to your wifi network
 
@@ -29,3 +29,4 @@ Needed hardware:
 
 
 IMPORTANT! don't forget to upload the content of "data" folder to your ESP8266 using "ESP8266 Sketch Data Upload" tool before you upload the sketch
+MQTT commands can be found in "Commands.txt" 
