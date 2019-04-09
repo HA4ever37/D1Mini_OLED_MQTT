@@ -4,7 +4,7 @@ Minimal MQTT client using ESP8266 (D1 mini) and Wemos Oled 0.66
 Features:
 * Wifi Manager to scan and connect to your wifi (no need for hard coded credentials)
 * Ability to Subscribe and Publish MQTT messages
-* Ability to print messages on screen or accept commands from an MQTT subscribed topic 
+* Ability to print messages on screen and accept commands from an MQTT subscribed topic 
 * Active http server to show debugging messages instead of using Serial monitor
 * SPIFFS read/write abitily so you can upload files to your ESP8266 easily
 * Compressed gzip HTML files to save space
