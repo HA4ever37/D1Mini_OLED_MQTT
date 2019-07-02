@@ -17,7 +17,7 @@ Future features:
 * Other suggestions? 
 
 Required external libraries (can be found from Library Manager of the Arduino IDE):
-* ArduinoJson v5 NOT v6 beta
+* ArduinoJson v6
 * Adafruit_GFX
 * PersWiFiManager
 * PubSubClient v4
