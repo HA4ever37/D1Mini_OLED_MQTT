@@ -59,8 +59,7 @@ void setup() {
   persWM.begin();
   server.on("/serial", []() {
     //build json object of program data
-    StaticJsonBuffer<500> jsonBuffer;
-    JsonObject &json = jsonBuffer.createObject();
+    StaticJsonDocument<500> json;
     int sec = millis() / 1000;
     int min = sec / 60;
     int hr = min / 60;
@@ -74,7 +73,7 @@ void setup() {
     json["s"] = s;
     s = "";
     char jsonchar[500];
-    json.printTo(jsonchar); //print to char array, takes more memory but sends in one piece
+    serializeJson(json, jsonchar); //print to char array, takes more memory but sends in one piece
     server.send(200, "application/json", jsonchar);
 
   }); //server.on serial
