@@ -132,6 +132,18 @@ void callback(char* topic, byte* payload, unsigned int length) {
     display.setTextSize(1);
     msgConfrim("Set small font");
   }
+  else if ((char)payload[0] == '#') {
+    WiFiClient client;
+    HTTPClient http;
+    String payload = "Error!";
+    if (http.begin(client, "http://api.ipify.org")) {
+      if (http.GET() > 0)
+        payload = http.getString();
+    }
+    char ip[16];
+    payload.toCharArray(ip, 16);
+    msgConfrim(ip);
+  }
   else if ((char)payload[0] == ':') {
     int sec = millis() / 1000;
     int min = sec / 60;

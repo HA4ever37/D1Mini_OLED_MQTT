@@ -3,4 +3,5 @@ Topic:	inTopic
 1	Led On
 2	Large font
 3	Small font
+#	Internet IP (not ethernet IP)
 :	Online time
