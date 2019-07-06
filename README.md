@@ -20,7 +20,7 @@ Required external libraries (can be found from Library Manager of the Arduino ID
 * ArduinoJson v6
 * Adafruit_GFX
 * PersWiFiManager
-* PubSubClient v4
+* PubSubClient
 * SPIFFSReadServer
 
 Needed hardware:
