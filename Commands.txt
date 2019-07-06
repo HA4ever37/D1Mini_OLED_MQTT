@@ -1,7 +1,8 @@
-Topic:	inTopic
+Topic:	inTopic (default subscription)
+
 0	Led Off
 1	Led On
 2	Large font
 3	Small font
-#	Internet IP (not ethernet IP)
+#	Internet IP (not ethernet\local IP)
 :	Online time

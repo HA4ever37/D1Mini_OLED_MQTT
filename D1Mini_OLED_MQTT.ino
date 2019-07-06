@@ -39,7 +39,7 @@ void setup() {
   SPIFFS.begin();
   //sets network name for AP mode
   persWM.setApCredentials(DEVICE_NAME);
-  //persWM.setApCredentials(DEVICE_NAME, "password"); optional password
+  //persWM.setApCredentials(DEVICE_NAME, "password"); optional WiFi AP password
   persWM.onConnect([]() {
     client.setServer(mqtt_server, 16390);
     client.setCallback(callback);
