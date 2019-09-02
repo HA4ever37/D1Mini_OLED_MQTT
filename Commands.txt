@@ -6,4 +6,5 @@ Topic:	inTopic (default subscription)
 3	Small font
 #	Internet IP (not ethernet\local IP)
 :	Online time
+*	Blink led
 (space)	Clear screen

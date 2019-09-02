@@ -1,11 +1,12 @@
-#include <ArduinoJson.h>
 #include <PersWiFiManager.h>
 #include <ESP8266WiFi.h>
+#include <ESP8266HTTPClient.h>
 #include <ESP8266SSDP.h>
 #include <PubSubClient.h>
 #include <SPIFFSReadServer.h>
 #include <DNSServer.h>
 #include <FS.h>
+#include <ArduinoJson.h>
 #include <Adafruit_GFX.h>
 #include "Wemos_Mini_OLED.h"
 
@@ -16,6 +17,7 @@ DNSServer dnsServer;
 WiFiClient espClient;
 PubSubClient client(espClient);
 PersWiFiManager persWM(server, dnsServer);
+
 Wemos_Mini_OLED display(0);
 
 const char* mqtt_server = "XXX.cloudmqtt.com";  // Your MQTT server
@@ -60,9 +62,10 @@ void setup() {
   server.on("/serial", []() {
     //build json object of program data
     StaticJsonDocument<500> json;
-    int sec = millis() / 1000;
-    int min = sec / 60;
-    int hr = min / 60;
+    long CurrentTime =  millis();
+    int sec = CurrentTime / 1000;
+    int min = CurrentTime / 1000 / 60;
+    int hr = CurrentTime / 1000 / 60 / 60;
     char ch[20];
     sprintf (ch, "%02d", sec % 60);
     json["sec"] = ch;
@@ -73,7 +76,7 @@ void setup() {
     json["s"] = s;
     s = "";
     char jsonchar[500];
-    serializeJson(json, jsonchar); //print to char array, takes more memory but sends in one piece
+    serializeJson(json, jsonchar);  //print to char array, takes more memory but sends in one piece
     server.send(200, "application/json", jsonchar);
 
   }); //server.on serial
@@ -116,7 +119,30 @@ void callback(char* topic, byte* payload, unsigned int length) {
   for (int i = 0; i < length; i++) {
     s += ((char)payload[i]);
   }
-  if ((char)payload[0] == '0') {
+  if ((char)payload[0] == '*') {
+    msgConfrim("Blink led");
+    for (byte b = 0; b < 25; b++) { //blink the led for 5 seconds
+      client.loop();
+      server.handleClient();
+      digitalWrite(BUILTIN_LED, LOW);
+      delay(100);
+      digitalWrite(BUILTIN_LED, HIGH);
+      delay(100);
+    }
+  }
+  else if ((char)payload[0] == '#') {
+    WiFiClient client;
+    HTTPClient http;
+    String payload = "Error!";
+    if (http.begin(client, "http://api.ipify.org")) {
+      if (http.GET() > 0)
+        payload = http.getString();
+    }
+    char ip[16];
+    payload.toCharArray(ip, 16);
+    msgConfrim(ip);
+  }
+  else if ((char)payload[0] == '0') {
     digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
     msgConfrim("Led is OFF");
   }
@@ -131,18 +157,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
   else if ((char)payload[0] == '3') {
     display.setTextSize(1);
     msgConfrim("Set small font");
-  }
-  else if ((char)payload[0] == '#') {
-    WiFiClient client;
-    HTTPClient http;
-    String payload = "Error!";
-    if (http.begin(client, "http://api.ipify.org")) {
-      if (http.GET() > 0)
-        payload = http.getString();
-    }
-    char ip[16];
-    payload.toCharArray(ip, 16);
-    msgConfrim(ip);
   }
   else if ((char)payload[0] == ':') {
     int sec = millis() / 1000;
