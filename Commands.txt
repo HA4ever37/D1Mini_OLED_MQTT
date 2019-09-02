@@ -6,3 +6,4 @@ Topic:	inTopic (default subscription)
 3	Small font
 #	Internet IP (not ethernet\local IP)
 :	Online time
+(space)	Clear screen
