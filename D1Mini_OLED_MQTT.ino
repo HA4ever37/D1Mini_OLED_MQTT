@@ -63,13 +63,13 @@ void setup() {
     //build json object of program data
     StaticJsonDocument<500> json;
     long CurrentTime =  millis();
-    int sec = CurrentTime / 1000;
-    int min = CurrentTime / 1000 / 60;
-    int hr = CurrentTime / 1000 / 60 / 60;
+    int sc = CurrentTime / 1000;
+    int mn = sc / 60;
+    int hr = mn / 60;
     char ch[20];
-    sprintf (ch, "%02d", sec % 60);
+    sprintf (ch, "%02d", sc % 60);
     json["sec"] = ch;
-    sprintf (ch, "%02d", min % 60);
+    sprintf (ch, "%02d", mn % 60);
     json["min"] = ch;
     sprintf (ch, "%02d", hr % 60);
     json["hr"] = ch;
@@ -197,7 +197,7 @@ void reconnect() {
   while (!client.connected()) {
     s += ("<br>Attempting MQTT connection...");
     // Create a random client ID
-    String clientId = "ESP8266Client";
+    String clientId = DEVICE_NAME;
     // Attempt to connect
     if (client.connect(clientId.c_str(), user, pass)) {
       s += ("<br>Connected");
