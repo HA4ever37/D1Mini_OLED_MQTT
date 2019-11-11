@@ -4,11 +4,13 @@ Minimal MQTT client using ESP8266 (D1 mini) and Wemos Oled 0.66
 Features:
 * Wifi Manager to scan and connect to your wifi (no need for hard coded credentials)
 * Ability to Subscribe and Publish MQTT messages
-* Ability to print messages on screen and accept commands from an MQTT subscribed topic 
-* Active http server to show debugging messages instead of using Serial monitor
-* SPIFFS read/write abitily so you can upload files to your ESP8266 easily
+* Smart autoconnect when disconnected or couldn't find saved WiFi AP
+* Ability to print animated messages on screen and accept commands from an MQTT subscribed topic 
+* Active http server to show debugging messages and MQTT messages instead of using Serial monitor
+* Various usfull contol commands (led control, change font size, etc)
+* SPIFFS read/write abitily so you can upload HTML files to your ESP8266 easily
 * Compressed gzip HTML files to save space
-* DNS Server for easy initial setup
+* DNS Server for easy initial setup from your pc or phone
 * SSDP Server so your ESP8266 can be seen as wifi device when connected to your home/office wifi network
 
 
@@ -17,7 +19,7 @@ Future features:
 * Other suggestions? 
 
 Required external libraries (can be found from Library Manager of the Arduino IDE):
-* ArduinoJson v6
+* ArduinoJson
 * Adafruit_GFX
 * PersWiFiManager v4 (NOT v5)
 * PubSubClient
@@ -30,4 +32,4 @@ Needed hardware:
 
 IMPORTANT NOTES!
 * Don't forget to upload the content of "data" folder to your ESP8266 using "ESP8266 Sketch Data Upload" tool
-* MQTT commands can be found in "Commands.txt"
+* List of MQTT commands can be found in "Commands.txt"
