@@ -5,9 +5,10 @@ Features:
 * Wifi Manager to scan and connect to your wifi (no need for hard coded credentials)
 * Ability to Subscribe and Publish MQTT messages
 * Smart autoconnect when disconnected or couldn't find saved WiFi AP
+* If the WiFi AP is not available then the ESP8266 will create it's own AP so the user can it for enter new credentials
 * Ability to print animated messages on screen and accept commands from an MQTT subscribed topic 
 * Active http server to show debugging messages and MQTT messages instead of using Serial monitor
-* Various usfull contol commands (led control, change font size, etc)
+* Various usfull contol commands (Print IP adrress, running time, led control, change font size, etc)
 * SPIFFS read/write abitily so you can upload HTML files to your ESP8266 easily
 * Compressed gzip HTML files to save space
 * DNS Server for easy initial setup from your pc or phone
