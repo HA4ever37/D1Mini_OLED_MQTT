@@ -1,5 +1,5 @@
 # D1Mini_OLED_MQTT
-Minimal MQTT client using ESP8266 (D1 mini) and Wemos Oled 0.66 
+Minimal fully automated MQTT client using ESP8266 (D1 mini) and Wemos Oled 0.66 
 
 Features:
 * Wifi Manager to scan and connect to your wifi (no need for hard coded credentials)
