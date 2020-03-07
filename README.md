@@ -1,11 +1,10 @@
 # D1Mini_OLED_MQTT
-Minimal fully automated MQTT client using ESP8266 (D1 mini) and Wemos Oled 0.66 
+Minimal fully automated MQTT client using ESP8266 (D1 mini preferably) and Wemos Oled 0.66 
 
 Features:
-* Wifi Manager to scan and connect to your wifi (no need for hard coded credentials)
-* Ability to Subscribe and Publish MQTT messages
+* Wifi Manager to scan and connect to your wifi network (no need for hard coded credentials). If the WiFi AP is not available then the Wifi Manager will create it's own AP so the user can it for enter new credentials
+* Ability to Subscribe, Publish, and print MQTT messages on screen
 * Smart autoconnect when disconnected or couldn't find saved WiFi AP
-* If the WiFi AP is not available then the ESP8266 will create it's own AP so the user can it for enter new credentials
 * Ability to print animated messages on screen and accept commands from an MQTT subscribed topic 
 * Active http server to show debugging messages and MQTT messages instead of using Serial monitor
 * Various usfull contol commands (Print IP adrress, running time, led control, change font size, etc)
@@ -16,7 +15,7 @@ Features:
 
 
 Future features:
-* Ask for a username and password to access debugging messages page
+* Ask for a username and password to access debugging messages' page
 * Other suggestions? 
 
 Required external libraries (can be found from Library Manager of the Arduino IDE):
