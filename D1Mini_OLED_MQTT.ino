@@ -43,7 +43,7 @@ void setup() {
   persWM.setApCredentials(DEVICE_NAME);
   //persWM.setApCredentials(DEVICE_NAME, "password"); optional WiFi AP password
   persWM.onConnect([]() {
-    client.setServer(mqtt_server, 16390);
+    client.setServer(mqtt_server, 16390); // You may need to change the port
     client.setCallback(callback);
     internet = true;
     display.clearDisplay();
