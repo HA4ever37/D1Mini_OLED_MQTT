@@ -21,6 +21,7 @@ PersWiFiManager persWM(server, dnsServer);
 Wemos_Mini_OLED display(0);
 
 const char* mqtt_server = "XXX.cloudmqtt.com";  // Your MQTT server
+const int port = 1883;                          // You may need to change this
 const char* user = "XXXXXXXXXXX";               // Your MQTT yourname
 const char* pass = "XXXXXXXXXXXXXX";            // Your MQTT password
 
@@ -43,7 +44,7 @@ void setup() {
   persWM.setApCredentials(DEVICE_NAME);
   //persWM.setApCredentials(DEVICE_NAME, "password"); optional WiFi AP password
   persWM.onConnect([]() {
-    client.setServer(mqtt_server, 16390); // You may need to change the port
+    client.setServer(mqtt_server, port); // You may need to change the port
     client.setCallback(callback);
     internet = true;
     display.clearDisplay();
