@@ -20,7 +20,7 @@ PersWiFiManager persWM(server, dnsServer);
 
 Wemos_Mini_OLED display(0);
 
-const char* mqtt_server = "XXX.cloudmqtt.com";  // Your MQTT server
+const char* mqtt_server = "XXXXXXXXXXX.com";    // Your MQTT server
 const int port = 1883;                          // You may need to change this
 const char* user = "XXXXXXXXXXX";               // Your MQTT yourname
 const char* pass = "XXXXXXXXXXXXXX";            // Your MQTT password
@@ -158,6 +158,23 @@ void callback(char* topic, byte* payload, unsigned int length) {
   else if ((char)payload[0] == '3') {
     display.setTextSize(1);
     msgConfrim("Set small font");
+  }
+  else if ((char)payload[0] == '4') {
+    for (byte i = 0; i < 5; i++) {
+      display.ssd1306_command(SSD1306_DISPLAYOFF); // To switch display off
+      delay(500);
+      display.ssd1306_command(SSD1306_DISPLAYON); // To switch display back on
+      delay(500);
+    }
+    msgConfrim("Blink screen 5 times");
+  }
+  else if ((char)payload[0] == '5') {
+    display.ssd1306_command(SSD1306_DISPLAYOFF);
+    msgConfrim("Screen off");
+  }
+  else if ((char)payload[0] == '6') {
+    display.ssd1306_command(SSD1306_DISPLAYON);
+    msgConfrim("Screen on");
   }
   else if ((char)payload[0] == ':') {
     int sec = millis() / 1000;

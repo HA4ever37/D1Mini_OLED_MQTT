@@ -4,7 +4,9 @@ Topic:	inTopic (default subscription)
 1	Led On
 2	Large font
 3	Small font
-#	Internet IP (not ethernet\local IP)
+4	Blick Screen (5 times)
+5	Screen off
+6	Screen on
+#	Internet IP (not local IP)
 :	Online time
 *	Blink led
-(space)	Clear screen
