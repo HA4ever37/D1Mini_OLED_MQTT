@@ -193,6 +193,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     msgConfrim(strdup(oTime.c_str()));
   }
   else {
+    display.ssd1306_command(SSD1306_DISPLAYON);
     display.clearDisplay();
     display.setCursor(0, 0);
     for (int i = 0; i < length; i++) {
